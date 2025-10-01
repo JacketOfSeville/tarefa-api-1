@@ -1,9 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
 const produtosRoutes = require("./routes/produtos");
 const usuariosRoutes = require("./routes/usuarios");
+
+app.use(cors({
+    origin: "http://localhost:3001"
+}));
 
 app.use(express.json());
 app.use("/produtos", produtosRoutes);
